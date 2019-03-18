@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2</title>
+	<style type="text/css">
+	#box{
+		position: relative;
+		width:100%;
+		height:843px;
+	}
+	#box img{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0px;
+		top: 0px;
+	}
+	#box img:nth-child(1){
+		z-index: 2;
+	}
+	ul{
+		position: absolute;
+		right: 10px;
+		bottom: 10px;
+		list-style: none;
+		z-index: 3;
+	}
+	li{
+		width: 59px;
+		height: 3px;
+		background-color:#ffffff;
+		opacity: 0.3;
+		margin-right: 10px;
+		float:left;
+	}
+	ul li:nth-child(1){
+		background-color:red;
+	}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<img src="img/banner01(1).jpg"/>
+		<img src="img/banner02(1).jpg"/>
+		<img src="img/banner03(1).jpg"/>
+		<img src="img/banner04(1).jpg"/>
+		<ul id="doudouBox">
+			<li index="0"></li>
+			<li index="1"></li>
+			<li index="2"></li>
+			<li index="3"></li>
+		</ul>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	//定义全局变量  时间 和当前图片下标  第一张图 =0
+	var myTimer; 
+	var currIndex=0;
+	//1、自动播放
+	function autoPlay(){
+		//一、数据处理
+		//1、改变数据
+		myTimer=setInterval(()=>{
+			currIndex++;
+		//2、处理边界
+			if(currIndex>3){
+				currIndex=0;
+			}
+		//二、改变外观
+		//1、改图片
+			for(let i=0;i<$("img").length;i++){
+				$("img")[i].style.zIndex=1;
+			}
+			$("img")[currIndex].style.zIndex=2;
+		//2、改豆豆
+			let liDoms=$("#doudouBox").children;
+			for(let i=0;i<liDoms.length;i++){
+				liDoms[i].style.backgroundColor="#ffffff";
+				liDoms[i].style.opacity=0.3;
+			}
+			liDoms[currIndex].style.backgroundColor="red";
+			
+		},3000);	
+	}
+	//2、鼠标划上去停止
+	function stopPlay(){
+		window.clearInterval(myTimer);
+	}
+	//3、鼠标移开继续自动播放
+
+	//4、点击小豆豆跳转到相对应的图片
+	function goImg(index){
+		//一、数据处理
+		//1、改变数据
+			currIndex=index;
+		//2、处理边界
+			if(currIndex>3 || currIndex<0){
+				currIndex=0;
+			}
+		//二、改变外观
+		//1、改图片
+			for(let i=0;i<$("img").length;i++){
+				$("img")[i].style.zIndex=1;
+			}
+			$("img")[currIndex].style.zIndex=2;
+		//2、改豆豆
+			let liDoms=$("#doudouBox").children;
+			for(var i=0;i<liDoms.length;i++){
+				liDoms[i].style.backgroundColor="#ffffff";
+				liDoms[i].style.opacity=0.3;
+			}
+			liDoms[currIndex].style.backgroundColor="red";	
+	}
+// 调用
+window.onload=function(){
+		autoPlay();
+
+	$("#box").onmouseenter=function(){
+			stopPlay();
+	}
+	$("#box").onmouseleave=function(){
+			autoPlay();
+	}
+	let liDoms=$("#doudouBox").children;
+	for(let i=0;i<liDoms.length;i++){
+		liDoms[i].onclick=function(){
+			goImg(this.getAttribute("index"));
+		}
+	}
+}
+//获取
+function $(str){
+	if(str.charAt(0)=="#"){
+		return document.getElementById(str.substring(1));
+	}else if(str.charAt(0)=="."){
+		return document.getElementsByClassName(str.substring(1));
+	}else{
+		return document.getElementsByTagName(str);
+	}
+} 
+</script>

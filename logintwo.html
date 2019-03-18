@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>login</title>
+	<style type="text/css">
+	*{
+		margin:0;
+		padding: 0; 
+	}
+	body{
+		background-color: #f7f7f7;
+	}
+	.bigbox{
+		width:1294px; 
+		height:1000px;
+		background-color: #ffffff;
+		text-align: center;
+		margin: 85px auto 0px;
+	}
+	.bigbox img{
+		width: 230px;
+		height: 70px;
+		margin-top: 87px;
+	}
+	.bigbox h1{
+		margin-top: 50px;
+		font-size: 34px;
+	}
+	.pone{
+		font-size: 20px;
+		color:#252526;
+		display: inline-block;
+		margin-left:-207px;
+		margin-top:108px;
+	}
+#phone{
+	width: 356px;
+	height:68px;
+	border:2px solid #dedfe0;
+	border-right:none;
+	font-size: 22px;
+	margin-left: 17px;
+	margin-top: 25px;
+	text-indent:19px;
+	color:#999999; 
+}
+
+#sele{
+	width: 180px;
+	height:68px;
+	border:2px solid #dedfe0;
+	border-left:none;
+	font-size: 22px;
+	margin-left: -5px;
+	margin-top: 25px;
+	text-indent:19px;
+	color:#999999; 
+}
+
+#passp{
+	position:relative;
+	left:-6px;
+	width: 536px;
+	height:68px;
+	border:2px solid #dedfe0;
+	font-size:22px;
+	vertical-align: middle;
+	text-indent: 18px;
+	margin-top: 20px;
+	margin-left:30px;
+}
+.read{
+	font-size:20px;
+	color:#999999;
+	margin-left: -220px;
+	display: inline-block;
+	line-height: 64px;
+}
+.next{
+	width:540px; 
+	height:72px;
+	background-color:#3b9bfa;
+	margin:0 auto;
+}
+.next a{
+	font-size: 24px;
+	color:white;
+	text-decoration: none;
+	line-height: 72px;
+}
+.next:hover{
+	background-color: #358ade;
+}
+.masd{
+	font-size: 20px;
+	color:#999999;
+	margin:18px auto;
+	width: 540px;
+	text-align: -webkit-auto;
+}
+.smabox{
+	width:100%;
+	height:60px;
+	margin-top: 205px;
+	margin-bottom: 60px;
+	text-align: center;
+	background-color: #f7f7f7;
+}
+.lastt a{
+	font-size: 22px;
+	text-decoration: none;
+	color: #666666;
+	display: inline-block;
+	/*width: 526px;*/
+	height:19px;
+}
+.lastt img{
+	margin-left: 90px;
+}
+.lastt img{
+	width: 22px;
+	height:20px;
+}
+.lis_l{ 
+	margin-top: 10px;
+}
+.lis_l a{
+	text-decoration:none;
+	color:#7e6666;
+	font-size: 12px;
+	text-decoration: none;
+}
+.lis_l p{
+	display: inline-block;
+	font-size: 12px;
+} 
+.smabox a:hover{
+	color: blue;
+}
+
+</style>
+</head>
+<body>
+	<div class="bigbox">
+			<img src="img/loginlog.png">
+			<h1>账号注册</h1>
+			<p class="pone">验证码短信将发送至 18309296114</p>
+		<div >
+			<input type="text" id="phone" value="请输入短信验证码">
+			<input type="text" id="sele" value="| 获取验证码"><br/>
+		</div>		
+			
+			<input type="password" id="passp" value="请输入手机号" name="phone"><span id="userIdSpan"></span><br/>
+			
+				<div  class="read">
+				密码必须为8-16位字母和数字组合
+				</div>
+				
+				<div class="next"><a href="#">完成</a></div>
+				<p class="masd">短信可能会有演示，请耐心等待，如果长时间未收到短信，请60秒后重新获取</p>
+	</div>
+	
+	<div class="smabox">
+		<div class="lastt">
+			<a href="#"><img src="img/zxkf.png"></a>
+			<a href="#">在线客服</a>
+			<img src="img/fwrx.png">
+			<a href="#">400-688-9688</a>
+			<a href="#">24小时全国服务热线</a>
+		</div>
+		<div class="lis_l">
+			<p>
+			Copyright ©2011-2019 广东步步高电子工业有限公司 版权所有 保留一切权利
+			</p>|
+			<a href="#">隐私政策</a> |
+			<a href="#">法律声明</a> |
+			<a href="#">粤B2-20080267</a> |
+			<a href="#">粤ICP备05100288号</a>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	 window.onload=function(){
+	 	$("#phone").onblur=function(){
+	 		//创建对象
+	 		let xhr=new XMLHttpRequest();
+	 		//请求设置参数
+	 		xhr.open("get","checkUserId.php?phone="+this.value,true);
+	 		//设置回调函数
+	 		xhr.onreadystatechange=function(){
+		 			if (xhr.readyState==4 && xhr.status==200){
+		 				// $("#userIdSpan").innerHTML=xhr.responseText;
+		 				if(xhr.responseText=="1"){
+						$("#userIdSpan").innerHTML="亲，该用户名已经被人使用了，请重新选择！";
+					}else{
+						$("#userIdSpan").innerHTML="亲，恭喜您，该用户名没有人使用，请赶紧注册吧！";
+					}
+	 			}
+	 		}
+	 		//发送
+	 		xhr.send();
+	 	}
+	 }
+	 function $(str){
+	if(str.charAt(0)=="#"){
+		return document.getElementById(str.substring(1));
+	}else if(str.charAt(0)=="."){
+		return document.getElementsByClassName(str.substring(1));
+	}else{
+		return document.getElementsByTagName(str);
+	}
+}	
+</script>

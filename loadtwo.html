@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>load</title>
+	<style type="text/css">
+	*{
+		margin:0;
+		padding: 0; 
+	}
+	body{
+		background-color: #f7f7f7;
+	}
+	.bigbigbox{
+		width:1890px;
+		height:1170px;
+		text-align: center; 
+		background:url("img/back.jpg") no-repeat center top;
+        background-size: 100% 100%;
+        position: relative;
+	}
+	.bigbox{
+		width:630px; 
+		height:1010px;
+		background-color: #ffffff;
+		text-align: center;
+		padding: 0px 44px;
+		position:absolute;
+		top: 87px;
+		right: 0px;
+	}
+	.loo{
+		width: 227px;
+		height: 64px;
+		margin-top: 60px;
+	}
+	.bigbox p:nth-of-type(1){
+		margin-top: 30px;
+		font-size: 28px;
+		color: #000000;
+		text-align: center;
+	}
+.bigbox a{
+	text-decoration: none;
+	display: inline-block;
+}
+.loadd{
+	font-size:20px; 
+	margin-right:-445px; 
+	margin-top: 30px;
+	color: #0191ff;
+}
+#selec{
+	width:85px; 
+	height:68px;
+	border:2px solid #dedfe0;
+	font-size: 20px;
+    text-indent:19px;
+    margin-top:30px;
+    border-right: none;
+    float: left;
+    margin-left: 53px;
+    /*vertical-align: middle;*/
+}
+#phone{
+	width: 451px;
+	height:68px;
+	border:2px solid #dedfe0;
+	border-left:none;
+	font-size:22px;
+	margin-top:30px;
+	float: left;
+}
+
+#phon{
+	width: 536px;
+	height:68px;
+	border:2px solid #dedfe0;
+	font-size: 22px;
+	margin-left: 17px;
+	margin-top: 25px;
+	text-indent:19px;
+}
+.email{
+	text-decoration: none;
+	font-size:18px;
+	float:left; 
+	margin: 27px 0px 0px 52px;
+	color:#009bfd;
+}
+.read{
+	font-size:18px;
+	color:#dedfe0;
+	margin-top:27px;
+	margin-left:414px;
+}
+
+.next{
+	width:540px; 
+	height:72px;
+	background-color:#3b9bfa;
+	margin-top: 20px;
+	    margin-left: 53px;
+}
+.next a{
+	font-size: 24px;
+	color:white;
+	line-height: 72px;
+}
+.next:hover{
+	background-color: #358ade;
+}
+.nextt{
+	width:536px; 
+	height:68px;
+	background-color:white;
+	border:2px solid #00aafe;; 
+	margin-top: 20px;
+	margin-left: 53px;
+}
+.nextt a{
+	font-size: 24px;
+	color:#00aafe;
+	line-height: 72px;
+}
+.nextt:hover{
+	background-color: #87d6ff;
+}
+.fog{
+	font-size: 20px;
+	color:#666666;
+	margin-top:40px;
+}
+.fog:hover{
+	color: blue;
+}
+.else{
+	color: #999999;
+	margin-top:58px;
+}
+.tu img{
+	width:39px;
+	height:39px;
+	margin:30px 6px 0px 6px;
+	
+}
+.smabox{
+	width:1890px;
+	height:60px;
+	margin-top: 205px;
+	margin-bottom: 60px;
+	text-align: center;
+	background-color: #f7f7f7;
+}
+.lastt a{
+	font-size: 22px;
+	text-decoration: none;
+	color: #666666;
+	display: inline-block;
+	/*width: 526px;*/
+	height:19px;
+}
+.lastt img{
+	margin-left: 90px;
+}
+.lastt img{
+	width: 22px;
+	height:20px;
+}
+.lis_l{ 
+	margin-top: 10px;
+}
+.lis_l a{
+	text-decoration:none;
+	color:#7e6666;
+	font-size: 12px;
+	text-decoration: none;
+}
+.lis_l p{
+	display: inline-block;
+	font-size: 12px;
+} 
+.smabox a:hover{
+	color: blue;
+}
+</style>
+</head>
+<body>
+	<div class="bigbigbox">
+		<div class="bigbox">
+			<img class="loo" src="img/loginlog.png">
+			<p>账号登录</p>
+			<a href="load.html" class="loadd">短信验证码登录</a><br/>
+			
+			<input type="text" id="selec" value="+86">
+			<input type="text" id="phone" value="请输入手机号"><br/>
+
+			<input type="password" id="phon" value="请输入密码"><br/>
+			
+			<a href="load.html" class="email">邮箱/用户名登录</a>
+			<div  class="read"><input type="checkbox"/>两周内自动登录</div>
+			<div class="next"><a href="#">登录</a></div>
+			<div id="messageBox" style="color: red;display: none;" ></div>
+			<div class="nextt"><a href="login.html">注册vivo账号</a></div>
+		
+			<a href="#" class="fog">忘记密码？</a>
+			<div class="else">
+				———————— <span>其他方式登陆</span> ————————
+			</div>
+			<div class="tu">
+				<a href="#"><img src="img/qq.png"></a>
+				<a href="#"><img src="img/weixin.png"></a>
+				<a href="#"><img src="img/zhifu.png"></a>
+				<a href="#"><img src="img/weibo.png"></a>
+				<a href="#"><img src="img/renren.png"></a>
+			</div>
+		</div>
+	</div>
+	<div class="smabox">
+		<div class="lastt">
+			<a href="#"><img src="img/zxkf.png"></a>
+			<a href="#">在线客服</a>
+			<img src="img/fwrx.png">
+			<a href="#">400-688-9688</a>
+			<a href="#">24小时全国服务热线</a>
+		</div>
+		<div class="lis_l">
+			<p>
+			Copyright ©2011-2019 广东步步高电子工业有限公司 版权所有 保留一切权利
+			</p>|
+			<a href="#">隐私政策</a> |
+			<a href="#">法律声明</a> |
+			<a href="#">粤B2-20080267</a> |
+			<a href="#">粤ICP备05100288号</a>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	window.onload=function(){
+		$(".next").onclick=function(){
+
+			let xhr=new XMLHttpRequest();
+
+			xhr.open("post","loginCheck.php",true);
+
+			xhr.onreadystatechange=function(){
+				if (xhr.readyState==4 && xhr.status==200) {
+					if (xhr.responseText=="1") {
+						//存cookie
+						addCookie("userid",$("#phone").value,30);
+						location.href="index.html";
+					}else{
+						$("#messageBox").innerHtml="登录失败，账号或者密码错误！";
+						$("#messageBox").style.display="block";
+					}
+				}
+			}
+
+			xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			let str=`phone`=${$("#phone").value}&userPass${$()}
+		}
+	}
+</script>
